@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rayen Chaaouri — Développeur Full-Stack & E-business</title>
+<meta name="description" content="Portfolio de Rayen Chaaouri, étudiant en E-business à l’ESSECT et développeur Full-Stack : web, automatisation n8n et IA.">
+<meta property="og:title" content="Rayen Chaaouri — Portfolio"><meta property="og:type" content="website">
+<style>
+/* ===== Thèmes : modifiez les couleurs ici ===== */
+:root{--bg:#F8FAFC;--bg2:#fff;--card:rgba(255,255,255,.72);--tx:#0F172A;--mut:#475569;--bd:rgba(15,23,42,.12);--in:#4F46E5;--cy:#06B6D4;--sh:0 10px 30px rgba(15,23,42,.08);color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#030712;--bg2:#0F172A;--card:rgba(15,23,42,.6);--tx:#F1F5F9;--mut:#94A3B8;--bd:rgba(148,163,184,.18);--sh:0 10px 30px rgba(0,0,0,.4);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#030712;--bg2:#0F172A;--card:rgba(15,23,42,.6);--tx:#F1F5F9;--mut:#94A3B8;--bd:rgba(148,163,184,.18);--sh:0 10px 30px rgba(0,0,0,.4);color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Arabic",Tahoma,sans-serif;transition:background .3s,color .3s;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px;border-radius:6px}
+.grad{background:linear-gradient(90deg,var(--in),var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent}
+.wrap{max-width:1100px;margin:auto;padding:0 20px}
+section{padding:84px 0;position:relative}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);margin:0 0 10px}
+.sub{color:var(--mut);margin:0 0 32px;max-width:640px}
+#bgc{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+#prog{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;background:linear-gradient(90deg,var(--in),var(--cy));z-index:70}
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--bd)}
+.nav{display:flex;align-items:center;gap:14px;height:64px}
+.logo{font-weight:800;font-size:1.25rem}
+.links{display:flex;gap:4px;margin-inline-start:auto}
+.links a{padding:6px 10px;border-radius:8px;color:var(--mut);font-size:.92rem}
+.links a:hover,.links a.act{color:var(--tx);background:var(--bd)}
+.tools{display:flex;gap:8px;align-items:center}
+.ib,select{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:10px;height:38px;min-width:38px;cursor:pointer;font:inherit;font-size:.9rem;padding:0 8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 22px;border-radius:12px;font-weight:600;border:1px solid var(--bd);cursor:pointer;font:inherit;font-weight:600;transition:transform .2s,box-shadow .2s;color:var(--tx);background:var(--card)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(79,70,229,.3)}
+.pri{background:linear-gradient(90deg,var(--in),var(--cy));color:#fff;border:0}
+#burger{display:none}
+@media(max-width:900px){#burger{display:inline-block}.cta-h{display:none}
+.links{position:fixed;inset:calc(64px + env(safe-area-inset-top,0px)) 0 auto 0;flex-direction:column;background:var(--bg2);padding:14px 20px;border-bottom:1px solid var(--bd);transform:translateY(-130%);transition:transform .3s;margin:0}
+.links.open{transform:none}.links a{padding:12px}}
+/* hero */
+.hero{min-height:88vh;display:flex;align-items:center;padding-top:40px}
+.hg{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+@media(max-width:800px){.hg{grid-template-columns:1fr}.ph-w{order:-1}}
+.hero h1{font-size:clamp(2.4rem,7vw,4rem);line-height:1.1;margin:8px 0}
+.role{font-size:1.1rem;font-weight:600;margin:0 0 14px}
+.hero p{color:var(--mut);max-width:560px}
+.row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.ph-w{display:grid;place-items:center}
+.ph{width:min(280px,70vw);aspect-ratio:1;border-radius:50%;padding:4px;background:linear-gradient(135deg,var(--in),var(--cy));box-shadow:0 0 60px rgba(6,182,212,.3);animation:fl 6s ease-in-out infinite}
+.ph>div,.ph img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:var(--bg2);display:grid;place-items:center;font-size:4rem;font-weight:800}
+@keyframes fl{50%{transform:translateY(-10px)}}
+.code{margin-top:26px;font:.82rem/1.6 ui-monospace,Menlo,monospace;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 16px;max-width:420px;color:var(--mut)}
+.code b{color:var(--cy)}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:22px;backdrop-filter:blur(10px);box-shadow:var(--sh);transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--cy)}
+.card h3{margin:0 0 8px;font-size:1.1rem}.card p{margin:0;color:var(--mut);font-size:.95rem}
+.ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--in),var(--cy));color:#fff;margin-bottom:12px;font-size:1.1rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{font-size:.78rem;padding:3px 10px;border-radius:99px;border:1px solid var(--bd);color:var(--mut)}
+.badge{font-size:.72rem;padding:2px 9px;border-radius:99px;background:rgba(6,182,212,.15);color:var(--cy);font-weight:600}
+.pimg{height:130px;border-radius:12px;margin-bottom:14px;background:linear-gradient(135deg,rgba(79,70,229,.25),rgba(6,182,212,.25));display:grid;place-items:center;font-size:2.2rem}
+.lk{display:flex;gap:12px;margin-top:14px;font-size:.88rem;color:var(--cy)}
+.empty{border-style:dashed;text-align:center}
+/* timeline */
+.tl{border-inline-start:2px solid var(--bd);padding-inline-start:24px;margin:0 0 30px}
+.tl .it{position:relative;margin-bottom:22px}
+.tl .it::before{content:"";position:absolute;inset-inline-start:-31px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--cy);box-shadow:0 0 0 4px var(--bg)}
+.it h3{margin:0}.it span{color:var(--mut);font-size:.88rem}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.gi{aspect-ratio:4/3;border-radius:14px;border:1px dashed var(--bd);background:var(--card);cursor:pointer;overflow:hidden;display:grid;place-items:center;color:var(--mut);font-size:.85rem;padding:8px;text-align:center;transition:transform .2s}
+.gi:hover{transform:scale(1.03)}.gi img{width:100%;height:100%;object-fit:cover}
+#lb{position:fixed;inset:0;background:rgba(3,7,18,.92);z-index:100;display:none;place-items:center;padding:20px}
+#lb.on{display:grid}#lb img{max-width:92vw;max-height:80vh;border-radius:12px}
+#lb .ph2{color:#fff;padding:60px 40px;border:1px dashed #94A3B8;border-radius:14px;text-align:center}
+#lb button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;width:44px;height:44px;border-radius:50%;font-size:1.4rem;cursor:pointer}
+/* form */
+form{display:grid;gap:12px}
+input,textarea{width:100%;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:12px;padding:12px;font:inherit}
+input.bad,textarea.bad{border-color:#EF4444}
+label{font-size:.88rem;color:var(--mut)}
+#fm{min-height:1.4em;font-size:.92rem}
+.two{display:grid;grid-template-columns:1fr 1.4fr;gap:30px}@media(max-width:800px){.two{grid-template-columns:1fr}}
+footer{border-top:1px solid var(--bd);padding:36px 0;text-align:center;color:var(--mut);font-size:.9rem}
+footer nav{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:12px 0}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+[dir=rtl] .flip{transform:scaleX(-1)}
+</style>
+</head>
+<body>
+<div id="prog"></div><canvas id="bgc" aria-hidden="true"></canvas>
+<header><div class="wrap nav">
+ <a href="#home" class="logo grad" aria-label="Rayen Chaaouri">RC</a>
+ <nav class="links" id="links" aria-label="Navigation principale">
+  <a href="#home" data-i="n1"></a><a href="#about" data-i="n2"></a><a href="#skills" data-i="n3"></a><a href="#projects" data-i="n4"></a><a href="#certs" data-i="n5"></a><a href="#contact" data-i="n6"></a>
+ </nav>
+ <div class="tools">
+  <select id="lang" aria-label="Langue / Language"><option value="fr">FR</option><option value="en">EN</option><option value="ar">AR</option></select>
+  <button class="ib" id="theme" aria-label="Thème">◐</button>
+  <a class="btn pri cta-h" href="#contact" data-i="cta" style="padding:8px 16px"></a>
+  <button class="ib" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="links">☰</button>
+ </div>
+</div></header>
+
+<main>
+<section class="hero" id="home"><div class="wrap hg">
+ <div class="rv">
+  <span class="badge" data-i="hi"></span>
+  <h1 class="grad">Rayen Chaaouri</h1>
+  <p class="role" data-i="role"></p>
+  <p data-i="intro"></p>
+  <div class="row"><a class="btn pri" href="#projects" data-i="b1"></a><a class="btn" href="#contact" data-i="b2"></a></div>
+  <div class="code" aria-hidden="true" dir="ltr"><b>workflow</b>.trigger(<b>"tutorial"</b>)<br>&nbsp;&nbsp;.then(<b>AI</b>.enrich)<br>&nbsp;&nbsp;.then(<b>Gmail</b>.send)</div>
+ </div>
+ <div class="ph-w rv"><div class="ph"><!-- Photo : renseignez CFG.photo --><div id="photo"><img src="C:\Users\rayen\OneDrive\Bureau\professional picture.jpg" alt="Rayen Chaaouri"></div></div></div>
+</div></section>
+
+<section id="about"><div class="wrap">
+ <h2 class="rv grad" data-i="n2"></h2><p class="sub rv" data-i="aboutP"></p>
+ <div class="grid">
+  <div class="card rv"><div class="ic">&lt;/&gt;</div><h3 data-i="c1t"></h3><p data-i="c1p"></p></div>
+  <div class="card rv"><div class="ic">⚙</div><h3 data-i="c2t"></h3><p data-i="c2p"></p></div>
+  <div class="card rv"><div class="ic">✦</div><h3 data-i="c3t"></h3><p data-i="c3p"></p></div>
+  <div class="card rv"><div class="ic">◈</div><h3 data-i="c4t"></h3><p data-i="c4p"></p></div>
+ </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+ <h2 class="rv grad" data-i="n3"></h2><p class="sub rv" data-i="skP"></p>
+ <div class="grid" id="skg"></div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+ <h2 class="rv grad" data-i="n4"></h2><p class="sub rv" data-i="prP"></p>
+ <div class="grid" id="prg"></div>
+</div></section>
+
+<section id="certs"><div class="wrap">
+ <h2 class="rv grad" data-i="n5"></h2><p class="sub rv" data-i="ceP"></p>
+ <div class="grid" id="ceg"></div>
+</div></section>
+
+<section id="path"><div class="wrap two">
+ <div class="rv"><h2 class="grad" data-i="acT"></h2>
+  <div class="tl"><div class="it"><h3>ESSECT — E-business</h3><span data-i="acS"></span><p style="color:var(--mut)" data-i="acP"></p></div></div>
+ </div>
+ <div class="rv"><h2 class="grad">Leo Aspire Tunis</h2>
+  <div class="tl"><div class="it"><h3 data-i="leoR"></h3><span>Leo Aspire Tunis</span><p style="color:var(--mut)" data-i="leoP"></p></div></div>
+ </div>
+</div></section>
+
+<section id="gallery"><div class="wrap">
+ <h2 class="rv grad" data-i="gaT"></h2><p class="sub rv" data-i="gaP"></p>
+ <div class="gal" id="gal"></div>
+</div></section>
+
+<section id="contact"><div class="wrap two">
+ <div class="rv"><h2 class="grad" data-i="n6"></h2><p class="sub" data-i="coP"></p>
+  <div class="row" style="flex-direction:column;align-items:flex-start"><a class="btn" id="mail" href="#"></a><a class="btn" id="gh" target="_blank" rel="noopener noreferrer" href="#">GitHub</a><a class="btn" id="li" target="_blank" rel="noopener noreferrer" href="#">LinkedIn</a></div></div>
+ <form id="cf" class="rv card" novalidate>
+  <div><label for="fn" data-i="fN"></label><input id="fn" name="n" autocomplete="name" maxlength="80" required></div>
+  <div><label for="fe" data-i="fE"></label><input id="fe" name="e" type="email" autocomplete="email" maxlength="120" required></div>
+  <div><label for="fs" data-i="fS"></label><input id="fs" name="s" maxlength="120" required></div>
+  <div><label for="fmg" data-i="fM"></label><textarea id="fmg" name="m" rows="5" maxlength="2000" required></textarea></div>
+  <button class="btn pri" type="submit" data-i="fB"></button>
+  <div id="fm" role="status" aria-live="polite"></div>
+ </form>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <strong class="grad">Rayen Chaaouri</strong>
+ <p>Building digital solutions through code, automation and AI.</p>
+ <nav aria-label="Footer"><a href="#about" data-i="n2"></a><a href="#projects" data-i="n4"></a><a href="#contact" data-i="n6"></a><a id="gh2" target="_blank" rel="noopener noreferrer" href="#">GitHub</a><a id="li2" target="_blank" rel="noopener noreferrer" href="#">LinkedIn</a></nav>
+ <small>© <span id="yr"></span> Rayen Chaaouri</small>
+</div></footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Galerie"><button id="lx" style="top:16px;inset-inline-end:16px" aria-label="Close">×</button><button id="lp" style="inset-inline-start:16px" aria-label="Prev">‹</button><button id="ln" style="inset-inline-end:16px" aria-label="Next">›</button><div id="lc"></div></div>
+
+<script>
+"use strict";
+/* ===== CONFIGURATION : modifiez vos informations ici ===== */
+const CFG={
+ email:"specialrayenchaaouri@gmail.com",
+ github:"https://github.com/rayngift",
+ linkedin:"",            // ← collez l’URL de votre profil LinkedIn
+ photo:""                // ← URL ou data:URI de votre photo
+};
+/* Projets : status = "done" | "wip" | "idea" | "tbd". Ajoutez gh/demo (URL) quand ils existent. */
+const PROJECTS=[
+ {ic:"⚡",tech:["n8n","AI","API","Gmail"],status:"tbd",gh:"",demo:"",
+  t:{fr:["Automatisation de tutoriels IT avec n8n et IA","Workflow qui récupère un tutoriel de réparation informatique, le transmet à une IA pour produire des instructions plus détaillées et claires, puis envoie le résultat par e-mail."],
+     en:["IT tutorial automation with n8n and AI","Workflow that fetches a computer-repair tutorial, sends it to an AI to generate clearer, more detailed instructions, then emails the result."],
+     ar:["أتمتة الدروس التقنية باستخدام n8n والذكاء الاصطناعي","سير عمل يجلب درسًا لإصلاح الحواسيب ويرسله إلى الذكاء الاصطناعي لإنتاج تعليمات أوضح وأكثر تفصيلًا، ثم يرسل النتيجة بالبريد الإلكتروني."]}},
+ {ic:"▦",tech:["PHP / Laravel","JavaScript","SQL","HTML/CSS"],status:"tbd",gh:"",demo:"",
+  t:{fr:["Dashboard d’administration web","Interface d’administration : statistiques du site, gestion des utilisateurs et des rôles, communication avec les utilisateurs. Technologies envisagées."],
+     en:["Web admin dashboard","Admin interface: site statistics, user and role management, user communication. Technologies envisaged."],
+     ar:["لوحة تحكم إدارية للويب","واجهة إدارة: إحصائيات الموقع، إدارة المستخدمين والأدوار، والتواصل مع المستخدمين. التقنيات المقترحة."]}},
+ {ic:"◎",tech:["HTML","CSS","JavaScript"],status:"wip",gh:"",demo:"",
+  t:{fr:["Portfolio personnel Full-Stack","Plateforme présentant mes compétences, projets et parcours, avec interface responsive et expérience moderne."],
+     en:["Full-Stack personal portfolio","Platform presenting my skills, projects and background, with a responsive interface and modern experience."],
+     ar:["معرض أعمال شخصي Full-Stack","منصة تعرض مهاراتي ومشاريعي ومساري، بواجهة متجاوبة وتجربة حديثة."]}},
+ {ic:"✎",tech:["E-business"],status:"tbd",gh:"",demo:"",
+  t:{fr:["Projets académiques en E-business","Entrepreneuriat digital, modèles économiques, analyse des besoins clients, transformation digitale. [À compléter avec les détails réels.]"],
+     en:["Academic E-business projects","Digital entrepreneurship, business models, customer-needs analysis, digital transformation. [To be completed with real details.]"],
+     ar:["مشاريع أكاديمية في التجارة الإلكترونية","ريادة الأعمال الرقمية، نماذج الأعمال، تحليل احتياجات العملاء، التحول الرقمي. [يُستكمل بالتفاصيل الحقيقية.]"]}}
+];
+/* Certifications : n, org, date, skills, url. Laissez vide tant qu’aucune n’est obtenue. */
+const CERTS=[];
+/* Galerie : {src:"URL", alt:"description"} — vos vraies captures uniquement */
+const GALLERY=[{src:"",alt:""},{src:"",alt:""},{src:"",alt:""},{src:"",alt:""}];
+const SKILLS=[
+ {ic:"</>",k:"s1",tags:["PHP","JavaScript","HTML5","CSS3","Laravel","Full-Stack"]},
+ {ic:"⚙",k:"s2",tags:["n8n","Workflows","API","Webhooks","Data"]},
+ {ic:"✦",k:"s3",tags:["AI workflows","LLM","Content generation"]},
+ {ic:"⌘",k:"s4",tags:["Git","GitHub","VS Code","WAMP","SQL"]},
+ {ic:"◈",k:"s5",tags:["E-business","Digital transformation","Customer needs","Project management"]}
+];
+/* ===== TRADUCTIONS ===== */
+const T={
+fr:{n1:"Accueil",n2:"À propos",n3:"Compétences",n4:"Projets",n5:"Certifications",n6:"Contact",cta:"Me contacter",hi:"Disponible pour stages & collaborations",
+ role:"Étudiant en E-business | Développeur Full-Stack | Passionné par l’IA et l’automatisation",
+ intro:"Je combine le développement web, l’automatisation et l’intelligence artificielle pour créer des solutions digitales utiles et innovantes. Passionné par les nouvelles technologies, je cherche constamment à apprendre, expérimenter et transformer les idées en projets concrets.",
+ b1:"Découvrir mes projets",b2:"Me contacter",
+ aboutP:"Étudiant en E-business à l’ESSECT, je conçois des solutions web qui aident les entreprises à améliorer leurs services, optimiser leurs processus et renforcer leur relation client.",
+ c1t:"Développement Full-Stack",c1p:"PHP et JavaScript pour construire des applications web.",c2t:"Automatisation",c2p:"Exploration de n8n pour automatiser des processus.",c3t:"IA appliquée",c3p:"Intégrer l’IA dans les applications et les workflows.",c4t:"Engagement",c4p:"Deputy business department, Leo Aspire Tunis ; formations, ateliers et projets collaboratifs.",
+ skP:"Technologies et domaines que j’utilise ou explore (aucun niveau affiché sans validation).",s1:"Développement web",s2:"Automatisation",s3:"Intelligence artificielle",s4:"Outils de développement",s5:"Business digital",
+ prP:"Statuts à confirmer : ne présentez comme réalisé que ce qui l’est vraiment.",st_done:"Terminé",st_wip:"En cours",st_idea:"Idée",st_tbd:"Statut à préciser",code:"Code",demo:"Démo",
+ ceP:"Uniquement les certifications réellement obtenues.",ceE:"Aucune certification ajoutée pour le moment. Modifiez le tableau CERTS (nom, organisme, date, compétences, lien).",ceW:"Formations en cours et autodidacte : à renseigner séparément.",
+ acT:"Parcours académique",acS:"[Période à renseigner]",acP:"Licence/cycle en E-business — École Supérieure des Sciences Économiques et Commerciales de Tunis.",
+ leoR:"Deputy business department",leoP:"[Décrivez ici les activités, événements et ateliers auxquels vous avez réellement participé.]",
+ gaT:"Galerie",gaP:"Captures d’écran, dashboards, workflows n8n, certificats. Ajoutez vos images réelles dans GALLERY.",gaE:"Image à ajouter",
+ coP:"Une opportunité de stage, une collaboration ou un projet freelance ? Écrivez-moi.",fN:"Nom",fE:"E-mail",fS:"Sujet",fM:"Message",fB:"Envoyer le message",
+ eReq:"Veuillez remplir tous les champs.",eMail:"Adresse e-mail invalide.",ok:"Votre application e-mail s’ouvre avec le message prêt. Aucun message n’est stocké par ce site ; validez l’envoi dans votre messagerie.",noMail:"E-mail non configuré."},
+en:{n1:"Home",n2:"About",n3:"Skills",n4:"Projects",n5:"Certifications",n6:"Contact",cta:"Contact me",hi:"Open to internships & collaborations",
+ role:"E-business Student | Full-Stack Developer | Passionate about AI and automation",
+ intro:"I combine web development, automation and artificial intelligence to build useful, innovative digital solutions. Passionate about new technologies, I keep learning, experimenting and turning ideas into concrete projects.",
+ b1:"See my projects",b2:"Contact me",
+ aboutP:"As an E-business student at ESSECT, I design web solutions that help companies improve their services, optimize processes and strengthen customer relationships.",
+ c1t:"Full-Stack development",c1p:"PHP and JavaScript to build web applications.",c2t:"Automation",c2p:"Exploring n8n to automate business processes.",c3t:"Applied AI",c3p:"Integrating AI into applications and workflows.",c4t:"Involvement",c4p:"Deputy business department, Leo Aspire Tunis; trainings, workshops and collaborative projects.",
+ skP:"Technologies and areas I use or explore (no proficiency level shown unless validated).",s1:"Web development",s2:"Automation",s3:"Artificial intelligence",s4:"Developer tools",s5:"Digital business",
+ prP:"Statuses to confirm: only present as completed what truly is.",st_done:"Completed",st_wip:"In progress",st_idea:"Idea",st_tbd:"Status to specify",code:"Code",demo:"Demo",
+ ceP:"Only certifications actually earned.",ceE:"No certification added yet. Edit the CERTS array (name, issuer, date, skills, link).",ceW:"Ongoing training and self-taught skills: to be listed separately.",
+ acT:"Academic background",acS:"[Period to fill in]",acP:"E-business program — École Supérieure des Sciences Économiques et Commerciales de Tunis.",
+ leoR:"Deputy business department",leoP:"[Describe here the activities, events and workshops you actually took part in.]",
+ gaT:"Gallery",gaP:"Screenshots, dashboards, n8n workflows, certificates. Add your real images in GALLERY.",gaE:"Image to add",
+ coP:"An internship, collaboration or freelance project? Write to me.",fN:"Name",fE:"Email",fS:"Subject",fM:"Message",fB:"Send message",
+ eReq:"Please fill in all fields.",eMail:"Invalid email address.",ok:"Your email app is opening with the message ready. This site stores nothing; confirm sending in your mail client.",noMail:"Email not configured."},
+ar:{n1:"الرئيسية",n2:"نبذة عني",n3:"المهارات",n4:"المشاريع",n5:"الشهادات",n6:"تواصل",cta:"تواصل معي",hi:"متاح للتدريب والتعاون",
+ role:"طالب في التجارة الإلكترونية | مطور Full-Stack | شغوف بالذكاء الاصطناعي والأتمتة",
+ intro:"أجمع بين تطوير الويب والأتمتة والذكاء الاصطناعي لبناء حلول رقمية مفيدة ومبتكرة. شغوف بالتقنيات الحديثة، أتعلم وأجرّب باستمرار وأحوّل الأفكار إلى مشاريع ملموسة.",
+ b1:"اكتشف مشاريعي",b2:"تواصل معي",
+ aboutP:"بصفتي طالبًا في التجارة الإلكترونية بالمدرسة العليا للعلوم الاقتصادية والتجارية بتونس (ESSECT)، أصمم حلول ويب تساعد المؤسسات على تحسين خدماتها وعملياتها وعلاقتها بالعملاء.",
+ c1t:"تطوير Full-Stack",c1p:"PHP وJavaScript لبناء تطبيقات الويب.",c2t:"الأتمتة",c2p:"استكشاف n8n لأتمتة العمليات.",c3t:"الذكاء الاصطناعي التطبيقي",c3p:"دمج الذكاء الاصطناعي في التطبيقات وسير العمل.",c4t:"الالتزام",c4p:"Deputy business department في Leo Aspire Tunis؛ تكوينات وورشات ومشاريع تعاونية.",
+ skP:"التقنيات والمجالات التي أستخدمها أو أستكشفها (دون مستويات إلا بعد التأكيد).",s1:"تطوير الويب",s2:"الأتمتة",s3:"الذكاء الاصطناعي",s4:"أدوات التطوير",s5:"الأعمال الرقمية",
+ prP:"الحالات تحتاج إلى تأكيد: لا تعرض كمنجز إلا ما أُنجز فعلًا.",st_done:"منجز",st_wip:"قيد الإنجاز",st_idea:"فكرة",st_tbd:"الحالة غير محددة",code:"الكود",demo:"عرض",
+ ceP:"الشهادات المحصّل عليها فعلًا فقط.",ceE:"لا توجد شهادات بعد. عدّل المصفوفة CERTS (الاسم، الجهة، التاريخ، المهارات، الرابط).",ceW:"التكوينات الجارية والتعلم الذاتي: تُدرج بشكل منفصل.",
+ acT:"المسار الأكاديمي",acS:"[الفترة تُستكمل]",acP:"برنامج التجارة الإلكترونية — المدرسة العليا للعلوم الاقتصادية والتجارية بتونس.",
+ leoR:"Deputy business department",leoP:"[صف هنا الأنشطة والفعاليات والورشات التي شاركت فيها فعلًا.]",
+ gaT:"المعرض",gaP:"لقطات شاشة، لوحات تحكم، سير عمل n8n، شهادات. أضف صورك الحقيقية في GALLERY.",gaE:"صورة تُضاف",
+ coP:"فرصة تدريب أو تعاون أو مشروع حر؟ راسلني.",fN:"الاسم",fE:"البريد الإلكتروني",fS:"الموضوع",fM:"الرسالة",fB:"إرسال الرسالة",
+ eReq:"يرجى ملء جميع الحقول.",eMail:"بريد إلكتروني غير صالح.",ok:"سيُفتح تطبيق البريد برسالتك جاهزة. هذا الموقع لا يخزّن شيئًا؛ أكّد الإرسال من بريدك.",noMail:"البريد غير مُعدّ."}
+};
+/* ===== Utilitaires ===== */
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl=u=>/^(https?:\/\/|data:image\/)/i.test(u||"")?u:"";
+let lang=store.get("lang");if(!T[lang])lang="fr";
+
+/* ===== Rendu dynamique ===== */
+function render(){
+ const L=T[lang];
+ document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+ $$("[data-i]").forEach(e=>e.textContent=L[e.dataset.i]);
+ $("#skg").innerHTML=SKILLS.map(s=>`<div class="card rv in"><div class="ic" dir="ltr">${esc(s.ic)}</div><h3>${L[s.k]}</h3><div class="tags" dir="ltr">${s.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div></div>`).join("");
+ $("#prg").innerHTML=PROJECTS.map(p=>{const [t,d]=p.t[lang];const g=safeUrl(p.gh),m=safeUrl(p.demo);
+  return `<article class="card rv in"><div class="pimg" aria-hidden="true">${p.ic}</div><span class="badge">${L["st_"+p.status]}</span><h3 style="margin-top:10px">${esc(t)}</h3><p>${esc(d)}</p><div class="tags" dir="ltr">${p.tech.map(x=>`<span class="tag">${esc(x)}</span>`).join("")}</div>${g||m?`<div class="lk">${g?`<a href="${g}" target="_blank" rel="noopener noreferrer">${L.code} ↗</a>`:""}${m?`<a href="${m}" target="_blank" rel="noopener noreferrer">${L.demo} ↗</a>`:""}</div>`:""}</article>`}).join("");
+ $("#ceg").innerHTML=(CERTS.length?CERTS.map(c=>{const u=safeUrl(c.url);return `<div class="card rv in"><h3>${esc(c.n)}</h3><p>${esc(c.org)} · ${esc(c.date)}</p><div class="tags">${(c.skills||[]).map(x=>`<span class="tag">${esc(x)}</span>`).join("")}</div>${u?`<div class="lk"><a href="${u}" target="_blank" rel="noopener noreferrer">↗</a></div>`:""}</div>`}).join(""):`<div class="card empty"><p>${L.ceE}</p></div>`)+`<div class="card empty"><p>${L.ceW}</p></div>`;
+ $("#gal").innerHTML=GALLERY.map((g,i)=>{const s=safeUrl(g.src);return `<button class="gi" data-k="${i}" aria-label="${esc(g.alt||L.gaE)}">${s?`<img src="${s}" alt="${esc(g.alt)}" loading="lazy">`:L.gaE}</button>`}).join("");
+ const hasMail=!!CFG.email;$("#mail").textContent=hasMail?CFG.email:L.noMail;$("#mail").href=hasMail?"mailto:"+CFG.email:"#contact";
+}
+/* ===== Liens sociaux ===== */
+function links(){
+ [["#gh",CFG.github],["#gh2",CFG.github],["#li",CFG.linkedin],["#li2",CFG.linkedin]].forEach(([s,u])=>{const e=$(s),v=safeUrl(u);if(v)e.href=v;else{e.style.display="none"}});
+ const p=safeUrl(CFG.photo);if(p)$("#photo").innerHTML=`<img src="${p}" alt="Rayen Chaaouri">`;
+ $("#yr").textContent=new Date().getFullYear();
+}
+/* ===== Langue & thème ===== */
+$("#lang").value=lang;
+$("#lang").onchange=e=>{lang=e.target.value;store.set("lang",lang);render();watch()};
+const th=store.get("theme");if(th)document.documentElement.dataset.theme=th;
+$("#theme").onclick=()=>{const d=document.documentElement,cur=d.dataset.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");const n=cur==="dark"?"light":"dark";d.dataset.theme=n;store.set("theme",n)};
+/* ===== Menu mobile ===== */
+const lk=$("#links"),bg=$("#burger");
+bg.onclick=()=>{const o=lk.classList.toggle("open");bg.setAttribute("aria-expanded",o)};
+lk.addEventListener("click",e=>{if(e.target.tagName==="A"){lk.classList.remove("open");bg.setAttribute("aria-expanded",false)}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){lk.classList.remove("open");closeLb()}});
+/* ===== Progression + lien actif ===== */
+addEventListener("scroll",()=>{const h=document.documentElement;$("#prog").style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100||0)+"%"},{passive:true});
+const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$(".links a").forEach(a=>a.classList.toggle("act",a.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-45% 0px -50% 0px"});
+$$("main section[id]").forEach(s=>io2.observe(s));
+/* ===== Apparition au défilement ===== */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+function watch(){$$(".rv:not(.in)").forEach(e=>io.observe(e))}
+/* ===== Lightbox ===== */
+let cur=0;const lb=$("#lb");
+function showLb(){const g=GALLERY[cur],s=safeUrl(g.src);$("#lc").innerHTML=s?`<img src="${s}" alt="${esc(g.alt)}">`:`<div class="ph2">${T[lang].gaE}</div>`}
+function closeLb(){lb.classList.remove("on")}
+$("#gal").addEventListener("click",e=>{const b=e.target.closest(".gi");if(b){cur=+b.dataset.k;showLb();lb.classList.add("on");$("#lx").focus()}});
+$("#lx").onclick=closeLb;lb.onclick=e=>{if(e.target===lb)closeLb()};
+const step=d=>{cur=(cur+d+GALLERY.length)%GALLERY.length;showLb()};
+$("#lp").onclick=()=>step(-1);$("#ln").onclick=()=>step(1);
+addEventListener("keydown",e=>{if(lb.classList.contains("on")){if(e.key==="ArrowRight")step(1);if(e.key==="ArrowLeft")step(-1)}});
+/* ===== Formulaire (sans backend : ouverture du client mail) ===== */
+$("#cf").addEventListener("submit",e=>{
+ e.preventDefault();const L=T[lang],f=e.target,m=$("#fm");
+ const v={n:f.n.value.trim(),e:f.e.value.trim(),s:f.s.value.trim(),m:f.m.value.trim()};
+ [f.n,f.e,f.s,f.m].forEach(x=>x.classList.toggle("bad",!x.value.trim()));
+ if(!v.n||!v.e||!v.s||!v.m){m.textContent=L.eReq;m.style.color="#EF4444";return}
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.e)){f.e.classList.add("bad");m.textContent=L.eMail;m.style.color="#EF4444";return}
+ if(!CFG.email){m.textContent=L.noMail;return}
+ const body=v.m+"\n\n— "+v.n+" ("+v.e+")";
+ location.href="mailto:"+CFG.email+"?subject="+encodeURIComponent(v.s)+"&body="+encodeURIComponent(body);
+ m.textContent=L.ok;m.style.color="var(--cy)";
+});
+/* ===== Particules légères ===== */
+(function(){
+ if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+ const c=$("#bgc"),x=c.getContext("2d");let w,h,P=[],mx=-999,my=-999;
+ function size(){w=c.width=innerWidth;h=c.height=innerHeight;P=Array.from({length:Math.min(50,Math.floor(w/28))},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3}))}
+ size();addEventListener("resize",size);addEventListener("pointermove",e=>{mx=e.clientX;my=e.clientY},{passive:true});
+ (function loop(){
+  if(!document.hidden){x.clearRect(0,0,w,h);x.fillStyle="rgba(6,182,212,.55)";x.strokeStyle="rgba(79,70,229,.18)";
+   P.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+    const dx=p.x-mx,dy=p.y-my,d=dx*dx+dy*dy;if(d<10000){p.x+=dx*.01;p.y+=dy*.01}
+    x.beginPath();x.arc(p.x,p.y,1.6,0,6.28);x.fill();
+    for(let j=i+1;j<P.length;j++){const q=P[j],ax=p.x-q.x,ay=p.y-q.y;if(ax*ax+ay*ay<14000){x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}})}
+  requestAnimationFrame(loop)})();
+})();
+/* ===== Init ===== */
+render();links();watch();
+</script>
+</body>
+</html>
